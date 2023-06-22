@@ -1,0 +1,16 @@
+.film-block {
+    border: 1px solid #888;
+    overflow: hidden;
+    border-radius: 15px;
+    width: 250px;
+    margin: 5px;
+    text-align: center;
+    word-wrap: break-word;
+}
+.film-block>img {
+    width: 250px;
+}
+.film-field {
+    display: flex;
+    flex-wrap: wrap;
+}
