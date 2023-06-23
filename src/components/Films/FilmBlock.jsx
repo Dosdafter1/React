@@ -25,7 +25,8 @@ const FilmBlock = ({film}) => {
             <p>{film.name}</p>
             <p>{film.year}</p>
             <button onClick={showInfo}>{btnText}</button>
-            
+            <p>{director}</p>
+            <p>{desc}</p>
         </div>
     );
 }
