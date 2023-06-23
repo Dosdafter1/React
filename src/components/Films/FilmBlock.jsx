@@ -1,24 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css'
 import $ from 'jquery'
 const FilmBlock = ({film}) => {
+    const [director, setDir] = useState('');
+    const [desc, setDesc] = useState('');
+    const [btnText, setBtnText] = useState('info ᐯ');
     const showInfo = (e) =>
     {
-        let bt = e.target
-        let info = e.target.parentElement.querySelector('#info')
-        if(bt.innerHTML==='info ᐯ')
+        if(btnText==='info ᐯ')
         {
-            bt.innerHTML = 'info ᐱ'
-            
-            let dirP = document.createElement('p')
-            dirP.innerHTML='Director: '+film.director
-            let desP = document.createElement('p')
-            desP.innerHTML='Description: '+film.description
-            info.append(dirP, desP)
+            setBtnText('info ᐱ')
+            setDir('Director: '+film.director)
+            setDesc('Description: '+film.description)
         }
         else{
-            bt.innerHTML = 'info ᐯ'
-            $(info).empty()
+            setBtnText('info ᐯ')
+            setDir('')
+            setDesc('')
         }
     }
     return (
@@ -26,8 +24,8 @@ const FilmBlock = ({film}) => {
             <img src={film.image} alt="" />
             <p>{film.name}</p>
             <p>{film.year}</p>
-            <button onClick={showInfo}>info ᐯ</button>
-            <div id='info'></div>
+            <button onClick={showInfo}>{btnText}</button>
+            
         </div>
     );
 }
