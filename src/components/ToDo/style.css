@@ -4,3 +4,7 @@
 .complete{
     text-decoration: line-through;
 }
+.active {
+    color: whitesmoke;
+    background-color: #888;
+}
