@@ -1,0 +1,16 @@
+.users-list a{
+    display: block;
+    background-color: #888;
+    text-decoration: none;
+    padding: 5px 20px;
+    color: whitesmoke;
+}
+.users-list a.active{
+    background-color: #555555;
+}
+.users {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    width: 80%;
+    margin: 50px auto;
+}

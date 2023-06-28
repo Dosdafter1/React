@@ -8,6 +8,7 @@ import tasksReducer from './ToDoReducer';
 const ToDo = () => {
     const [taskList, dispatch] = useReducer(tasksReducer,toDoItems);
     const [filter, setFilter] = useState('All');
+
     const addTask = (name) =>
     {
         dispatch({
