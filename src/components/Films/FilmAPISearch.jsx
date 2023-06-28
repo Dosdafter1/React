@@ -38,7 +38,7 @@ const FilmAPISearch = ({search,setSearch}) => {
                         onChange={(e)=>{setType(e.target.value)}}>
                         <option value="none">-</option>
                         <option value="movie">Movie</option>
-                        <option value="movie">Series</option>
+                        <option value="series">Series</option>
                     </select>
                 </label>
                 <label htmlFor="">Year:
