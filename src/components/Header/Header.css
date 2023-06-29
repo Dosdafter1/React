@@ -5,16 +5,38 @@ header{
 }
 header a{
     display: inline-block;
-    color: orange;
     text-decoration: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 590;
     padding: 0 20px;
 }
-header a:hover{
+header a.active{
+    background: none;
+}
+
+header.dark {
+    background-color: #333;
+    color: #ddd;
+}
+header.dark  a{
+    color: orange;
+}
+header.dark  a.active{
+    color: rgb(156, 101, 0);
+}
+header.dark  a:hover{
     color: rgb(188, 123, 2);
 }
-header a.active{
-    color: rgb(156, 101, 0);
-    background: none;
+
+header.light {
+    background-color: #ddd;
+}
+header.light  a{
+    color: #333;
+}
+header.light  a.active{
+    color: #000000;
+}
+header.light  a:hover{
+    color: #3b3b3b;
 }

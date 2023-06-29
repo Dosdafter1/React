@@ -6,23 +6,45 @@ import Header from "./components/Header/Header.jsx";
 import Users from "./components/Users/Users.jsx";
 import UserInfo from "./components/Users/UserInfo.jsx";
 import FilmAPI from "./components/Films/FilmAPI.jsx";
+import UsersContext from "./contexts/UsersContext.js";
+import { useEffect, useState } from "react";
+import ThemeProvider from "./providers/ThemeProvider.js";
+import FavoriteFilmProvider from "./providers/FavoriteFilmProvider.js";
+import FavoriteFilmList from "./components/Films/FavoriteFilmList.jsx";
+
 
 function App() {
+  const [users, setUser] = useState([]);
+  const getUsers = async () => {
+      const response = await fetch('https://jsonplaceholder.typicode.com/users')
+      const result = await response.json();
+      setUser(result);
+  }
+  useEffect(()=>{
+    getUsers();
+  },[]);
   return (
     <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<ToDo/>} />
-        <Route path="/counter" element={<Counter/>} />
+    <UsersContext.Provider value={users}>
+      <ThemeProvider>
+        <FavoriteFilmProvider>
+          <Header />
+          <Routes>
+            <Route path="/" element={<ToDo/>} />
+            <Route path="/counter" element={<Counter/>} />
 
-        <Route path="/users" element={<Users/>}>
-          <Route path=":id" element={<UserInfo />} />
-        </Route>
+            <Route path="/users" element={<Users/>}>
+              <Route path=":id" element={<UserInfo />} />
+            </Route>
 
-        <Route path="/films" element={<Films/>} />
-        <Route path="/film-api" element={<FilmAPI />} />
-        <Route path="*" element={<h1>page not found...</h1>} />
-      </Routes>
+            <Route path="/films" element={<Films/>} />
+            <Route path="/film-api" element={<FilmAPI />} />
+            <Route path="*" element={<h1>page not found...</h1>} />
+          </Routes>
+          <FavoriteFilmList/>
+        </FavoriteFilmProvider>
+      </ThemeProvider>
+    </UsersContext.Provider>
     </>
   );
 }
