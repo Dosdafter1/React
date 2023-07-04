@@ -11,6 +11,7 @@ import { useEffect, useState } from "react";
 import ThemeProvider from "./providers/ThemeProvider.js";
 import FavoriteFilmProvider from "./providers/FavoriteFilmProvider.js";
 import FavoriteFilmList from "./components/Films/FavoriteFilmList.jsx";
+import Counters from "./components/Counters/Counters.jsx";
 
 
 function App() {
@@ -39,7 +40,9 @@ function App() {
 
             <Route path="/films" element={<Films/>} />
             <Route path="/film-api" element={<FilmAPI />} />
-            <Route path="*" element={<h1>page not found...</h1>} />
+            <Route path="/counters" element={<Counters/>} />
+           
+           <Route path="*" element={<h1>page not found...</h1>} />
           </Routes>
           <FavoriteFilmList/>
         </FavoriteFilmProvider>
